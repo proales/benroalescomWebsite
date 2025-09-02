@@ -1,16 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Benjamin Roales</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .announcement-container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .polaroid-frame {
+            background-color: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .baby-photo {
+            width: 100%;
+            height: 350px;
+            background-color: #e0e0e0;
+            background-image: url('ben.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-family: 'Playfair+Display', serif;
+            font-size: 3em;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+            font-style: italic;
+            color: #333;
+        }
+
+        .baby-name {
+            font-size: 1.8em;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #555;
+        }
+
+        .birth-info {
+            text-align: center;
+            font-size: 0.9em;
+            line-height: 1.8;
+            color: #666;
+            font-style: italic;
+        }
+
+        .birth-date {
+            font-weight: 400;
+            color: #444;
+            margin: 5px 0;
+        }
+
+        .measurements {
+            font-size: 0.85em;
+            color: #777;
+        }
+
+        .decorative-line {
+            width: 50px;
+            height: 1px;
+            background-color: #ddd;
+            margin: 15px auto;
+        }
+
+        .extra-text {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .photo-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #3366cc;
+            text-decoration: none;
+        }
+
+        .photo-link:hover {
+            text-decoration: underline;
+        }
+
+        .password-container {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .password-container input {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .password-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border: none;
+        }
+
+        .password-container button:hover {
+            background: #555;
+        }
+
+        @media (max-width: 480px) {
+            .announcement-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .baby-name {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
+    <div class="announcement-container" id="content" style="display:none;">
+        <div class="polaroid-frame">
+            <div class="baby-photo"><img href="ben.jpg"></div>
+        </div>
+
+        <h1>Benjamin Roales</h1>
+        <div class="decorative-line"></div>
+
+        <div class="birth-info">
+            <p>Born on <span class="birth-date">August 4th</span></p>
+            <p class="measurements">7 pounds, 3 ounces | 20 inches</p>
+        </div>
+
+        <div class="extra-text">
+            <p>We are thrilled to welcome Benjamin into our family. He’s already brought us so much joy and we can’t
+                wait for you to meet him.</p>
+            <p>Take a look at some of our favorite photos capturing his first days with us.</p>
+        </div>
+
+        <a href="https://photos.app.goo.gl/V4RUZ8UM8bNk7o8YA" class="photo-link">Photos</a>
+
+        <a href="https://www.amazon.com/baby-reg/paul-roales-anya-kaiser-august-2025-sanfrancisco/2K4G2GQ2Z4FM6"
+            class="photo-link">Baby Registry</a>
+
+
+    </div>
+
+    <div class="password-container" id="passwordBox" style="display:none;">
+        <p>Please enter the password:</p>
+        <input type="password" id="passwordInput" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const pw = getQueryParam("pw");
+        if (pw === "ben") {
+            document.getElementById("content").style.display = "block";
+        } else {
+            document.getElementById("passwordBox").style.display = "block";
+        }
+
+        function checkPassword() {
+            const entered = document.getElementById("passwordInput").value.trim();
+            if (entered) {
+                window.location.search = "?pw=" + encodeURIComponent(entered);
+            }
+        }
+    </script>
 </body>
 
 </html>
